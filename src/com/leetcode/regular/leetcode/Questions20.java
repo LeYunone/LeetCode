@@ -1,4 +1,4 @@
-package com.leetcode.regular;
+package com.leetcode.regular.leetcode;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +10,7 @@ import java.util.Stack;
  *
  * 20. 有效的括号
  */
-public class Questions5 {
+public class Questions20 {
 
     public static void main(String[] args) {
         isValid("[[[]");

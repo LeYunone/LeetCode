@@ -1,4 +1,4 @@
-package com.leetcode.regular;
+package com.leetcode.regular.leetcode;
 
 /**
  * @author pengli
@@ -6,7 +6,7 @@ package com.leetcode.regular;
  *
  * 1685. 有序数组中差绝对值之和    [错误]
  */
-public class Questions2_fail {
+public class Questions1685_fail {
     public static void main(String[] args) {
         int [] s={1,4,6,8,10};
         getSumAbsoluteDifferences(s);

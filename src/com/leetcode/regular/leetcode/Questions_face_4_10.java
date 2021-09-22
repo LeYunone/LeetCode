@@ -1,4 +1,4 @@
-package com.leetcode.regular;
+package com.leetcode.regular.leetcode;
 
 import com.leetcode.bean.TreeNode;
 
@@ -7,7 +7,7 @@ import com.leetcode.bean.TreeNode;
  * @create 2021-09-15 14:19
  *  面试题 04.10. 检查子树
  */
-public class Questions8 {
+public class Questions_face_4_10 {
 
     public boolean checkSubTree(TreeNode t1, TreeNode t2) {
         if(t1==null){

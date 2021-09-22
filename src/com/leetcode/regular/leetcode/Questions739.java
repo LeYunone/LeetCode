@@ -1,4 +1,4 @@
-package com.leetcode.regular;
+package com.leetcode.regular.leetcode;
 
 import java.util.Stack;
 
@@ -8,7 +8,7 @@ import java.util.Stack;
  *
  * 739. 每日温度
  */
-public class Questions4 {
+public class Questions739 {
 
     public static void main(String[] args) {
         int [] s={73,74,75,71,69,72,76,73};

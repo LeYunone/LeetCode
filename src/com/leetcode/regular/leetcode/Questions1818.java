@@ -1,4 +1,4 @@
-package com.leetcode.regular;
+package com.leetcode.regular.leetcode;
 
 import java.util.Arrays;
 
@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author pengli
  * @create 2021-09-10 10:05
  */
-public class Questions3 {
+public class Questions1818 {
 
     public static void main(String[] args) {
         int [] num1={1,10,4,4,2,7};

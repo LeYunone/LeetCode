@@ -1,4 +1,4 @@
-package com.leetcode.regular;
+package com.leetcode.regular.leetcode;
 
 import com.leetcode.bean.TreeNode;
 
@@ -11,7 +11,7 @@ import java.util.List;
  *
  * 617. 合并二叉树
  */
-public class Questions1 {
+public class Questions617 {
 
     public static TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
         if(null==root1){

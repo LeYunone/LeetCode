@@ -1,4 +1,4 @@
-package com.leetcode.regular;
+package com.leetcode.regular.leetcode;
 
 import com.leetcode.bean.ListNode;
 
@@ -7,7 +7,7 @@ import com.leetcode.bean.ListNode;
  * @create 2021-09-15 09:51
  * 21. 合并两个有序链表
  */
-public class Questions6 {
+public class Questions21 {
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode result=new ListNode(-1);

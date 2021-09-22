@@ -1,11 +1,11 @@
-package com.leetcode.regular;
+package com.leetcode.regular.leetcode;
 
 /**
  * @author pengli
  * @create 2021-09-15 10:12
  * 53. 最大子序和
  */
-public class Questions7 {
+public class Questions53 {
 
     public static void main(String[] args) {
         int [] s={-2,1,-3,4,-1,2,1,-5,4};
