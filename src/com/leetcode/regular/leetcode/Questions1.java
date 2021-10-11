@@ -1,6 +1,8 @@
 package com.leetcode.regular.leetcode;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author pengli
@@ -15,30 +17,13 @@ public class Questions1 {
     }
 
     public static int[] twoSum(int[] nums, int target) {
-        Arrays.sort(nums);
-        int [] result=new int[2];
+        Map<Integer,Integer> map=new HashMap<>();
         for(int i=0;i<nums.length;i++){
-            if(i>0 && nums[i]==nums[i-1]){
-                continue;
+            if(map.containsKey(target-nums[i])){
+                return new int []{i,map.get(target-i)};
             }
-            int temp=target-nums[i];
-            int left=i;
-            int right=nums.length-1;
-            while(left<=right){
-                int mid=(right-left)/2+left;
-                if(nums[mid]==temp){
-                    result[0]=i;
-                    result[1]=mid;
-                    return result;
-                }
-                if(nums[mid]>temp){
-                    right=mid-1;
-                }
-                if(nums[mid]<temp){
-                    left=mid+1;
-                }
-            }
+            map.put(nums[i],i);
         }
-        return result;
+        return null;
     }
 }
