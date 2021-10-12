@@ -10,19 +10,45 @@ import java.util.List;
  * 15. 三数之和
  */
 public class Questions15 {
-    public List<List<Integer>> threeSum(int[] nums) {
+
+    public static void main(String[] args) {
+        threeSum(new int []{-1,0,1,2,-1,-4});
+    }
+
+    public static List<List<Integer>> threeSum(int[] nums) {
         if(nums.length<2){
             return new ArrayList<>();
         }
+        List<List<Integer>> result=new ArrayList<>();
         Arrays.sort(nums);
-        int left=0;
-        int right=nums.length-1;
-        while(true){
-            int temp=nums[left]+nums[right];
-            int mid=(right-left)/2+left;
-            if(mid>-temp){
-                
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]>0){
+                break;
+            }
+            if(i>0 && nums[i]==nums[i-1]){
+                continue;
+            }
+            int right=nums.length-1;
+            int tar=-nums[i];
+            for(int j=i+1;j<nums.length;j++){
+                if(j>i+1 && nums[j] ==nums[j-1]){
+                    continue;
+                }
+                while(j<right && nums[j]+nums[right]>tar){
+                    right--;
+                }
+                if(j==right){
+                    break;
+                }
+                if(nums[j]+nums[right]==tar){
+                    List<Integer> list=new ArrayList<>();
+                    list.add(nums[i]);
+                    list.add(nums[j]);
+                    list.add(nums[right]);
+                    result.add(list);
+                }
             }
         }
+        return result;
     }
 }
