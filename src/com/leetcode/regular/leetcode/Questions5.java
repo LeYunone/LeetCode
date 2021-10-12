@@ -21,11 +21,11 @@ public class Questions5 {
             len=Math.max(len,len2);
             if(len>max){
                 max=len;
-                start=i-len/2;
+                start=(i-len-1)/2;
                 end=i+len/2;
             }
         }
-        return s.substring(start,end);
+        return s.substring(start,end+1);
     }
 
     public static int order(String str,int left,int right){
@@ -33,7 +33,7 @@ public class Questions5 {
             left--;
             right++;
         }
-        return right-left;
+        return right-left-1;
     }
 
 
