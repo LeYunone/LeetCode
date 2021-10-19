@@ -14,7 +14,7 @@ public class Questions141 {
         }
         ListNode pre=head;
         ListNode next=head.next;
-        if(next!=pre){
+        while(next!=pre){
             if(next==null || next.next==null){
                 return false;
             }
