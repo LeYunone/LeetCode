@@ -9,7 +9,41 @@ import java.lang.annotation.Target;
 public class Questions34 {
 
     public static void main(String[] args) {
-        int [] ar={1};
+        int [] ar={5,7,7,8,8,10};
+        searchRange(ar,8);
+    }
+
+    public static int[] searchRange(int[] nums, int target) {
+        int left=0;
+        int right=nums.length-1;
+        int left2=0;
+        int right2=nums.length-1;
+        int leftTemp=target-1;
+        int rightTemp=target+1;
+        while(right> left || right2>left2){
+            if(right>left){
+                //找左边
+                int mid=(right-left)/2+left;
+                if(nums[mid]>leftTemp){
+                    right=mid-1;
+                }else{
+                    left=mid+1;
+                }
+            }
+            if(right2>left2){
+                //找右边
+                int mid=(right2-left2)/2+left2;
+                if(nums[mid]>rightTemp){
+                    right2=mid-1;
+                }else{
+                    left2=mid+1;
+                }
+            }
+        }
+        if(nums[left+1]!=target){
+            return new int [] {-1,-1};
+        }
+        return new int [] {left,left2-1};
     }
 
 

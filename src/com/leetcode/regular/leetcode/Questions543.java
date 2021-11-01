@@ -15,37 +15,14 @@ import java.util.Queue;
  *
  */
 public class Questions543 {
-    public int diameterOfBinaryTree(TreeNode root) {
-        Queue<TreeNode> queue=new LinkedList<>();
-        int left=0; //左边的最大深度
-        int right=0; //右边的最大深度
-        if(root.left!=null){
-            queue.add(root.left);
-            while(!queue.isEmpty()){
-                left++;
-                TreeNode poll = queue.poll();
-                if(poll.left!=null){
-                    queue.add(poll.left);
-                }
-                if(poll.right!=null){
-                    queue.add(poll.right);
-                }
-            }
-        }
 
-        if(root.right!=null){
-            queue.add(root.right);
-            while(!queue.isEmpty()){
-                right++;
-                TreeNode poll = queue.poll();
-                if(poll.left!=null){
-                    queue.add(poll.left);
-                }
-                if(poll.right!=null){
-                    queue.add(poll.right);
-                }
-            }
+    public int diameterOfBinaryTree(TreeNode root) {
+        int max=0;
+        Queue queue=new LinkedList();
+        queue.add(root);
+        while(queue.isEmpty()){
+
         }
-        return left+right;
+        return 0;
     }
 }
