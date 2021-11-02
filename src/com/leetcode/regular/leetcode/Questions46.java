@@ -28,8 +28,8 @@ public class Questions46 {
         }
         for(int i=index;i<nums.length;i++){
             temp.add(nums[i]);
-            backOrder(temp,nums,index+1);
-            temp.remove(index);
+            backOrder(temp,nums,i+1);
+            temp.remove(temp.size()-1);
         }
     }
 
