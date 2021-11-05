@@ -11,8 +11,8 @@ import java.util.List;
 public class Questions18 {
 
     public static void main(String[] args) {
-        fourSum(new int []{1, 0, -1, 0, -2, 2
-        },0);
+        fourSum(new int []{2,2,2,2,2
+        },8);
     }
 
     public static List<List<Integer>> fourSum(int[] nums, int target) {
@@ -23,15 +23,9 @@ public class Questions18 {
             if(i>=1 && nums[i]==nums[i-1]){
                 continue;
             }
-            if (nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3] > target) {
-                break;
-            }
-            if (nums[i] + nums[length - 3] + nums[length - 2] + nums[length - 1] < target) {
-                continue;
-            }
 
             for(int j=i+1;j<nums.length-2;j++){
-                if(j>=i+1 && nums[j]==nums[j-1]){
+                if(j>i+1 && nums[j]==nums[j-1]){
                     continue;
                 }
                 int right=nums.length-1;
@@ -44,12 +38,15 @@ public class Questions18 {
                         list.add(nums[j]);
                         list.add(nums[left]);
                         list.add(nums[right]);
+                        result.add(list);
                         while(left<right && nums[left]==nums[left+1]){
                             left++;
                         }
+                        left++;
                         while(left<right && nums[right]==nums[right-1]){
                             right--;
                         }
+                        right--;
                     }else if(sum<target){
                         left++;
                     }else{
