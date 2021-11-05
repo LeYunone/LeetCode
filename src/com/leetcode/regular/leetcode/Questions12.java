@@ -5,26 +5,35 @@ import java.util.Map;
 
 /**
  * @author pengli
- * @create 2021-10-09 14:44
- * 12. 整数转罗马数字
+ * @create 2021-09-22 15:10
+ *
+ * 12. 罗马数字转整数
  */
 public class Questions12 {
 
-    public String intToRoman(int num) {
-        int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-        String[] strings = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-        StringBuilder sb=new StringBuilder();
-        for(int i=0;i<values.length;i++){
-            int numTemp=values[i];
-            String strTemp=strings[i];
-            while(num>=numTemp){
-                sb.append(strTemp);
-                num=num-numTemp;
-            }
-            if(num==0){
-                return sb.toString();
+
+    public static void main(String[] args) {
+        romanToInt("IX");
+    }
+    public static int romanToInt(String s) {
+        Map<Character,Integer> map=new HashMap<>();
+        map.put('I',1);
+        map.put('V',5);
+        map.put('X',10);
+        map.put('L',50);
+        map.put('C',100);
+        map.put('D',500);
+        map.put('M',1000);
+        char d=s.charAt(s.length()-1);
+        int sum=map.get(s.charAt(s.length()-1));
+
+        for(int i=s.length()-2;i>=0;i--){
+            if(map.get(s.charAt(i+1))>map.get(s.charAt(i))){
+                sum-=map.get(s.charAt(i));
+            }else{
+                sum+=map.get(s.charAt(i));
             }
         }
-        return sb.toString();
+        return sum;
     }
 }
