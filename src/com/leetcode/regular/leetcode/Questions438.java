@@ -12,34 +12,29 @@ import java.util.Set;
 public class Questions438 {
 
     public static void main(String[] args) {
-        findAnagrams("cbaebabacd","abc");
+        findAnagrams("op","by");
     }
 
     public static List<Integer> findAnagrams(String s, String p) {
-        int n = s.length(), m = p.length();
-        List<Integer> res = new ArrayList<>();
-        if(n < m) return res;
-
-        int[] pCnt = new int[26];
-        int[] sCnt = new int[26];
-
-        for(int i = 0; i < m; i++){
-            pCnt[p.charAt(i) - 'a'] ++;
+        int len=s.length();
+        int [] pChar=new int [26];
+        int [] sChar=new int [26];
+        for(Character c:p.toCharArray()){
+            pChar[c-'a']++;
         }
-
-        int left = 0;
-        for(int right = 0; right < n; right++){
-            int curRight = s.charAt(right) - 'a';
-            sCnt[curRight]++;
-            while(sCnt[curRight] > pCnt[curRight]){
-                int curLeft = s.charAt(left) - 'a';
-                sCnt[curLeft]--;
+        int left=0;
+        List<Integer> result=new ArrayList<>();
+        for(int right=0;right<s.length();right++){
+            int temp=s.charAt(right)-'a';
+            sChar[temp]++;
+            while(sChar[temp]>pChar[temp]){
+                sChar[s.charAt(left)-'a']--;
                 left++;
             }
-            if(right - left + 1 == m){
-                res.add(left);
+            if(right-left+1==p.length()){
+                result.add(left);
             }
         }
-        return res;
+        return result;
     }
 }
