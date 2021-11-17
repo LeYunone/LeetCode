@@ -9,7 +9,22 @@ import java.util.Arrays;
 public class Questions416 {
 
     public boolean canPartition(int[] nums) {
+        int sum=0;
+        for(int i:nums){
+            sum+=i;
+        }
         Arrays.sort(nums);
+        int target=sum/2;
+        int temp=0;
+        for(int i=0;i<nums.length;i++){
+            temp+=nums[i];
+            if(temp==target && i!=nums.length-1){
+                return true;
+            }
+            if(temp>target){
+                break;
+            }
+        }
         return false;
     }
 }
