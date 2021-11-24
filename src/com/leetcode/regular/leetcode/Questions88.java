@@ -8,31 +8,27 @@ package com.leetcode.regular.leetcode;
 public class Questions88 {
 
     public static void main(String[] args) {
-        int [] ar={0};
-        int [] ar2={1};
-        merge(ar,0,ar2,1);
+        int[] ar = {1, 2, 3, 0, 0, 0};
+        int[] ar2 = {2, 5, 6};
+        merge(ar, 3, ar2, 3);
     }
 
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
-        if(m==0){
-            nums1=nums2;
-        }else{
-            int left=0;
-            int right=n;
-            int len=nums1.length;
-            while(n!=0 && right!=len){
-                if(nums2[right-n]<nums1[left]){
-                    nums1[right]=nums1[left];
-                    nums1[left]=nums2[right-n];
-                    right++;
-                }else{
-                    left++;
-                    if(left>m){
-                        nums1[left]=nums2[right-n];
-                        right++;
-                    }
-                }
+        int p1 = m - 1;
+        int p2 = n - 1;
+        int tail  = m + n - 1;
+        int cur = 0;
+        while (p1 >= 0 || p2 >= 0) {
+            if (p1 == -1) {
+                cur = nums2[p2--];
+            } else if (p2 == -1) {
+                cur = nums1[p1--];
+            } else if (nums2[p1] > nums1[p2]) {
+                cur = nums2[p1--];
+            } else {
+                cur = nums1[p2--];
             }
+            nums1[tail --] = cur;
         }
     }
 }

@@ -1,7 +1,8 @@
 package com.leetcode.regular.leetcode;
 
 
-import java.util.ConcurrentModificationException;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * @author pengli
@@ -11,40 +12,37 @@ import java.util.ConcurrentModificationException;
 public class Questions1091 {
 
     public static void main(String[] args) {
-        shortestPathBinaryMatrix(new int [][] {{1,0,0},{1,1,0},{1,1,0}});
+        shortestPathBinaryMatrix(new int[] []{{0}});
     }
 
-    public static int shortestPathBinaryMatrix(int[][] grid) {
-        boolean [] [] visred=new boolean [grid.length] [grid[0].length];
-        int [] min=new int [] {-1};
-        order(min,visred, grid, 0, 0, 0);
-        return min[0];
-    }
-
-    public static void order(int [] min,boolean [] [] visted,int [] [] grid,int x,int y,int result){
-        if(grid[y][x]==1){
-            return;
-        }
-        result++;
-        visted[y][x]=true;
-        if(x==grid[0].length-1 && y==grid.length-1){
-            if(min[0]==-1){
-                min[0]=result;
-            }else{
-                min[0]=Math.min(min[0],result);
-            }
-            return;
-        }
-
+    public static   int shortestPathBinaryMatrix(int[][] grid) {
         int [] [] moves=new int [] [] {{0,1},{0,-1},{1,0},{-1,0},{1,1},{1,-1},{-1,1},{-1,-1}};
-        for(int [] move:moves){
-            int newX=x+move[1];
-            int newY=y+move[0];
-            if(newX>=0 && newX<grid[0].length && newY>=0 && newY<grid.length && !visted[newY][newX] && grid[newY][newX] ==0){
-                order(min,visted,grid,newX,newY,result);
-                visted[newY][newX]=false;
+        int yLen=grid.length;
+        int xLen=grid[0].length;
+        Queue<int []> queue=new LinkedList();
+        if(grid[0][0]!=0 || grid[yLen-1][xLen-1]!=0){
+            return -1;
+        }
+        queue.add(new int [] {0,0,1});
+        while(!queue.isEmpty()){
+            int[] poll = queue.poll();
+            int y=poll[0];
+            int x=poll[1];
+            int dis=poll[2];
+            for(int [] move:moves){
+                int newY=y+move[0];
+                int newX=x+move[1];
+                if(newY<yLen && newY>=0 && newX>=0 && newX<xLen && grid[newY][newX]==0){
+                    queue.add(new int [] {newY,newX,dis+1});
+                    grid[newY][newX]=1;
+                }else{
+                    continue;
+                }
+                if(newY==yLen-1 && newX==xLen-1){
+                    return dis+1;
+                }
             }
         }
-        return;
+        return xLen==1&&yLen==1?1:-1;
     }
 }

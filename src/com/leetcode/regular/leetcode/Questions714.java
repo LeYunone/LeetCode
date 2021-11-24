@@ -4,7 +4,7 @@ package com.leetcode.regular.leetcode;
  * @author pengli
  * @create 2021-11-17 14:18
  */
-public class Quetsions714 {
+public class Questions714 {
 
     public static void main(String[] args) {
         maxProfit(new int [] {1,3,2,8,4,9},2);

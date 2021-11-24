@@ -24,7 +24,7 @@ public class Questions673 {
                         dp[i]=dp[j]+1;
                         count[i]=count[j];
                     }else if(dp[j]+1==dp[i]){
-                        count[i]+=1;
+                        count[i]+=count[j];
                     }
                 }
             }
