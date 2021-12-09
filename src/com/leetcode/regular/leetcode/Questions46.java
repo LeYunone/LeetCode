@@ -1,6 +1,8 @@
 package com.leetcode.regular.leetcode;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -9,7 +11,6 @@ import java.util.List;
  */
 public class Questions46 {
 
-    public static List<List<Integer>> result=new ArrayList<>();
 
     public static void main(String[] args) {
         permute(new int [] {1,2,3});
@@ -17,21 +18,27 @@ public class Questions46 {
     }
 
     public static List<List<Integer>> permute(int[] nums) {
-        backOrder(new ArrayList<>(),nums,0);
-        return result;
+        List<Integer> list=new ArrayList<>();
+        for(int i:nums){
+            list.add(i);
+        }
+        List<List<Integer>> res=new ArrayList<>();
+        backOrder(res,list,0);
+        return res;
     }
 
-    public static void backOrder (List<Integer> temp,int [] nums,int index){
-        if(index==nums.length){
-            result.add(new ArrayList<>(temp));
-            return;
+    public static void backOrder(List<List<Integer>> res,List<Integer> list,int index){
+        if(index==list.size()-1){
+            res.add(new ArrayList<>(list));
         }
-        for(int i=index;i<nums.length;i++){
-            temp.add(nums[i]);
-            backOrder(temp,nums,i+1);
-            temp.remove(temp.size()-1);
+        for(int i=index;i<list.size();i++){
+            Collections.swap(list,i,index);
+            backOrder(res,list,index+1);
+            Collections.swap(list,i,index);
         }
     }
+
+
 
 
 }
