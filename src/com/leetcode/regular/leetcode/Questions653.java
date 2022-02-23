@@ -12,6 +12,4 @@ public class Questions653 {
     public boolean findTarget(TreeNode root, int k) {
        return true;
     }
-
-
 }

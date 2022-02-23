@@ -1,5 +1,6 @@
 package com.leetcode.regular.leetcode;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,18 +10,27 @@ import java.util.Set;
  */
 public class Questions560 {
 
-    public int subarraySum(int[] nums, int k) {
-        Set<Integer> set=new HashSet<>();
-        int sum=0;
-        int count=0;
-        for(int i=0;i<nums.length;i++){
-            sum+=nums[i];
-            if(nums[i]<=k){
-                if(set.contains(k-nums[i])){
-                    count++;
-                }
-            }
+    public static int count=0;
+
+    public static void main (String[] args) {
+        subarraySum(new int [] {1,1,1},2);
+    }
+
+    public static int subarraySum(int[] nums, int k) {
+        Arrays.sort(nums);
+        order(nums,0,k,0);
+        return count;
+    }
+
+    public static void order(int [] arr,int sum,int k,int index){
+        if(sum>k){
+            return;
         }
-        return 0;
+        if(sum==k){
+            count++;
+        }
+        for(int i=index;i<arr.length;i++){
+            order(arr,arr[i]+sum,k,i+1);
+        }
     }
 }
