@@ -20,6 +20,6 @@ public class Questions268 {
                 return i+1;
             }
         }
-        return 0;
+        return 0;   
     }
 }
