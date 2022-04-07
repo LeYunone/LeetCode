@@ -22,8 +22,6 @@ public class InsertionSort {
                 arr[index+1] = temp;
             }
         }
-        for (int i : arr){
-            System.out.print(i+" ");
-        }
+        SystemArray.systemArr(arr);
     }
 }
