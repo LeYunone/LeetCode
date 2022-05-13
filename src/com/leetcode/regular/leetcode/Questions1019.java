@@ -28,6 +28,7 @@ public class Questions1019 {
         ListNode node = head;
         List<Integer> list = new ArrayList();
         while(node!=null){
+            //循环一，遍历原链表中的每一个节点
             list.add(order(node));
             node = node.next;
         }
@@ -37,6 +38,7 @@ public class Questions1019 {
     public int order(ListNode node){
         int temp = node.val;
         while(node.next!=null){
+            //循环二，遍历指定节点，比较后续值大小
             int v = node.next.val;
             if(v>temp){
                 return v;
